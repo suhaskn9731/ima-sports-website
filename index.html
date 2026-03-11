@@ -1,40 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMA Sports Fest</title>
 
 <style>
 body{
-background:black;
+margin:0;
+font-family:Arial, sans-serif;
+background:#0f172a;
 color:white;
+}
+
+header{
 text-align:center;
-font-family:Arial;
+padding:80px 20px;
+background:linear-gradient(135deg,#1e3a8a,#020617);
 }
 
 h1{
-font-size:50px;
+font-size:48px;
+margin-bottom:10px;
+}
+
+.tagline{
+font-size:18px;
+opacity:0.9;
 }
 
 button{
-padding:15px 25px;
-background:red;
-color:white;
+margin-top:25px;
+padding:15px 30px;
+background:#ef4444;
 border:none;
-border-radius:10px;
+border-radius:8px;
+color:white;
 font-size:18px;
+cursor:pointer;
+}
+
+section{
+padding:60px 20px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+width:220px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+background:#334155;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+margin-top:40px;
 }
 </style>
-
 </head>
 
 <body>
 
-<h1>IMA Sports & Esports Fest</h1>
+<header>
+<h1>IMA Sports Fest</h1>
+<p class="tagline">Compete • Conquer • Celebrate</p>
 
-<p>Welcome to the official sports club website</p>
+<button onclick="alert('Registration opening soon!')">
+Register Now
+</button>
 
-<button>Register Now</button>
+</header>
+
+<section>
+<h2>Sports Events</h2>
+
+<div class="cards">
+
+<div class="card">Cricket</div>
+<div class="card">Football</div>
+<div class="card">Badminton</div>
+<div class="card">Volleyball</div>
+<div class="card">Table Tennis</div>
+<div class="card">Athletics</div>
+
+</div>
+
+</section>
+
+<footer>
+<p>IMA Sports Club</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
 
 </body>
-
 </html>

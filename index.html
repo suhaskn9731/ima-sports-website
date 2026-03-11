@@ -17,7 +17,7 @@ background:#0f172a;
 color:white;
 }
 
-/* VIDEO HERO SECTION */
+/* HERO VIDEO SECTION */
 
 .hero{
 position:relative;
@@ -48,17 +48,26 @@ top:0;
 left:0;
 }
 
+/* HERO CONTENT */
+
 .hero-content{
 position:relative;
 display:flex;
 align-items:center;
-gap:30px;
+gap:40px;
 flex-wrap:wrap;
 justify-content:center;
 }
 
 .logo{
 width:80px;
+height:auto;
+}
+
+.title-box{
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
 h1{
@@ -131,21 +140,21 @@ margin-top:40px;
 
 <body>
 
-<!-- HERO SECTION WITH VIDEO -->
+<!-- HERO SECTION -->
 
 <header class="hero">
 
 <video autoplay muted loop class="hero-video">
-<source src="sports-video.mp4" type="video/mp4">
+<source src="50109-459915579_medium.mp4" type="video/mp4">
 </video>
 
 <div class="hero-overlay"></div>
 
 <div class="hero-content">
 
-<img src="logo1.png" class="logo">
+<img src="logo1.jpeg" class="logo">
 
-<div>
+<div class="title-box">
 
 <h1>IMA Sports Fest</h1>
 
@@ -159,7 +168,7 @@ Register Now
 
 </div>
 
-<img src="logo2.png" class="logo">
+<img src="logo2.jpeg" class="logo">
 
 </div>
 

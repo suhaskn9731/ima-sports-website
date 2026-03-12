@@ -17,7 +17,7 @@ background:#0f172a;
 color:white;
 }
 
-/* VIDEO HEADER */
+/* HERO SECTION */
 
 .hero{
 position:relative;
@@ -91,12 +91,34 @@ cursor:pointer;
 .sports-section{
 padding:60px 20px;
 text-align:center;
-
-/* paint background */
-
-background-image:url("https://www.transparenttextures.com/patterns/paint-splatter.png");
-background-color:#0f172a;
+position:relative;
+overflow:hidden;
 }
+
+/* animated paint splashes */
+
+.splash{
+position:absolute;
+width:300px;
+opacity:0.15;
+animation:float 12s infinite linear;
+}
+
+.splash1{top:20%;left:10%;}
+.splash2{top:60%;right:10%;animation-duration:15s;}
+.splash3{bottom:10%;left:40%;animation-duration:18s;}
+
+@keyframes float{
+
+0%{transform:translateY(0px) rotate(0deg);}
+
+50%{transform:translateY(-30px) rotate(10deg);}
+
+100%{transform:translateY(0px) rotate(0deg);}
+
+}
+
+/* cards layout */
 
 .cards{
 display:flex;
@@ -106,7 +128,7 @@ gap:18px;
 margin-top:40px;
 }
 
-/* white sports boxes */
+/* sport cards */
 
 .card{
 background:white;
@@ -116,13 +138,16 @@ width:85%;
 max-width:420px;
 border-radius:12px;
 font-size:18px;
-text-align:center;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
 box-shadow:0 8px 20px rgba(0,0,0,0.3);
 transition:0.3s;
 }
 
 .card:hover{
-transform:scale(1.04);
+transform:scale(1.05);
 }
 
 /* footer */
@@ -139,7 +164,7 @@ background:#020617;
 
 <body>
 
-<!-- HERO SECTION -->
+<!-- HERO HEADER -->
 
 <header class="hero">
 
@@ -177,17 +202,25 @@ Compete • Conquer • Celebrate
 
 <h2>Sports Events</h2>
 
+<!-- paint splashes -->
+
+<img src="https://pngimg.com/uploads/paint_splash/paint_splash_PNG64.png" class="splash splash1">
+
+<img src="https://pngimg.com/uploads/paint_splash/paint_splash_PNG70.png" class="splash splash2">
+
+<img src="https://pngimg.com/uploads/paint_splash/paint_splash_PNG63.png" class="splash splash3">
+
 <div class="cards">
 
-<div class="card">Football</div>
+<div class="card">⚽ Football</div>
 
-<div class="card">Volleyball</div>
+<div class="card">🏐 Volleyball</div>
 
-<div class="card">Throwball</div>
+<div class="card">🤾 Throwball</div>
 
-<div class="card">Kho Kho</div>
+<div class="card">🏃 Kho Kho</div>
 
-<div class="card">Basketball</div>
+<div class="card">🏀 Basketball</div>
 
 </div>
 

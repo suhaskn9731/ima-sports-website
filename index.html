@@ -68,6 +68,7 @@ background:white;
 color:black;
 padding:25px;
 border-radius:10px;
+display:none;
 }
 
 .registration h3{
@@ -119,7 +120,7 @@ margin-top:40px;
 
 <body>
 
-<!-- HEADER POSTER -->
+<!-- HEADER -->
 
 <header class="hero">
 
@@ -133,21 +134,21 @@ margin-top:40px;
 
 <div class="cards">
 
-<div class="card">⚽ Football</div>
+<div class="card" onclick="selectSport('Football')">⚽ Football</div>
 
-<div class="card">🏐 Volleyball</div>
+<div class="card" onclick="selectSport('Volleyball')">🏐 Volleyball</div>
 
-<div class="card">🤾 Throwball</div>
+<div class="card" onclick="selectSport('Throwball')">🤾 Throwball</div>
 
-<div class="card">🏃 Kho Kho</div>
+<div class="card" onclick="selectSport('Kho Kho')">🏃 Kho Kho</div>
 
-<div class="card">🏀 Basketball</div>
+<div class="card" onclick="selectSport('Basketball')">🏀 Basketball</div>
 
 </div>
 
-<!-- REGISTRATION -->
+<!-- REGISTRATION FORM -->
 
-<section class="registration">
+<section class="registration" id="registrationForm">
 
 <h3>Register for Event</h3>
 
@@ -157,27 +158,23 @@ margin-top:40px;
 
 <input type="text" placeholder="Year">
 
-<select>
+<select id="sportSelect">
 
 <option>Select Sport</option>
 
 <option>Football</option>
-
 <option>Volleyball</option>
-
 <option>Throwball</option>
-
 <option>Kho Kho</option>
-
 <option>Basketball</option>
 
 </select>
 
-<button>Submit Registration</button>
+<button onclick="submitForm()">Submit Registration</button>
 
 </section>
 
-<!-- EVENT INFORMATION -->
+<!-- EVENT INFO -->
 
 <section class="info">
 
@@ -188,7 +185,7 @@ Venue : Basaveshwara Medical College & Hospital
 </p>
 
 <p>
-Organized by : IMA-MSN KARNATAKA
+Organized by : IMA
 </p>
 
 <p>
@@ -202,11 +199,36 @@ team spirit, and celebration.
 
 <footer>
 
+<p>IMA Sports Fest</p>
+
 <p>Designed by Suhas K N</p>
 
 <p>© 2026 All Rights Reserved</p>
 
 </footer>
+
+<script>
+
+function selectSport(sport){
+
+document.getElementById("registrationForm").style.display="block";
+
+document.getElementById("sportSelect").value=sport;
+
+window.scrollTo({
+top:document.getElementById("registrationForm").offsetTop,
+behavior:"smooth"
+});
+
+}
+
+function submitForm(){
+
+alert("Registration submitted successfully!");
+
+}
+
+</script>
 
 </body>
 

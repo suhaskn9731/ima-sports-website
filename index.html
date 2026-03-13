@@ -24,22 +24,22 @@ width:100%;
 display:block;
 }
 
-/* SECTION TITLE */
+/* TITLE */
 
 .section-title{
 text-align:center;
-font-size:28px;
-margin-top:50px;
+font-size:30px;
+margin-top:40px;
 }
 
-/* SPORTS CARDS */
+/* SPORTS GRID */
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
 padding:40px;
-max-width:900px;
+max-width:1000px;
 margin:auto;
 }
 
@@ -49,60 +49,81 @@ color:black;
 padding:25px;
 border-radius:12px;
 text-align:center;
-font-size:18px;
 box-shadow:0 6px 18px rgba(0,0,0,0.3);
-cursor:pointer;
-transition:0.3s;
 }
 
-.card:hover{
-transform:translateY(-6px);
+.card img{
+width:60px;
+margin-bottom:10px;
 }
 
-/* REGISTRATION FORM */
-
-.registration{
-max-width:400px;
-margin:40px auto;
-background:white;
-color:black;
-padding:25px;
-border-radius:10px;
-display:none;
-}
-
-.registration h3{
-margin-top:0;
-text-align:center;
-}
-
-.registration input,
-.registration select{
-width:100%;
-padding:10px;
-margin-top:10px;
-margin-bottom:15px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-.registration button{
-width:100%;
-padding:12px;
+.card button{
 background:#ef4444;
 color:white;
 border:none;
+padding:10px 18px;
 border-radius:6px;
-font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* CART BUTTON */
+
+.cart-button{
+position:fixed;
+top:20px;
+right:20px;
+background:#ef4444;
+color:white;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+z-index:1000;
+}
+
+/* CART PANEL */
+
+.cart-panel{
+position:fixed;
+top:0;
+right:-350px;
+width:350px;
+height:100%;
+background:white;
+color:black;
+box-shadow:-4px 0 10px rgba(0,0,0,0.4);
+padding:20px;
+transition:0.3s;
+z-index:999;
+}
+
+.cart-panel.open{
+right:0;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+}
+
+.checkout{
+background:#22c55e;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:6px;
+margin-top:15px;
 cursor:pointer;
 }
 
-/* EVENT INFO */
+/* CLOSE BUTTON */
 
-.info{
-text-align:center;
-padding:40px;
-line-height:1.6;
+.close{
+float:right;
+cursor:pointer;
+font-size:20px;
 }
 
 /* FOOTER */
@@ -120,109 +141,129 @@ margin-top:40px;
 
 <body>
 
-<!-- HEADER -->
-
 <header class="hero">
-
 <img src="header.png">
-
 </header>
 
-<!-- SPORTS EVENTS -->
+<div class="cart-button" onclick="toggleCart()">
+Cart (<span id="cartCount">0</span>)
+</div>
 
 <h2 class="section-title">Sports Events</h2>
 
 <div class="cards">
 
-<div class="card" onclick="selectSport('Football')">⚽ Football</div>
+<div class="card">
+<img src="football.png">
+<h3>Football</h3>
+<p>Fee: ₹200</p>
+<button onclick="addToCart('Football',200)">Add</button>
+</div>
 
-<div class="card" onclick="selectSport('Volleyball')">🏐 Volleyball</div>
+<div class="card">
+<img src="volleyball.png">
+<h3>Volleyball</h3>
+<p>Fee: ₹150</p>
+<button onclick="addToCart('Volleyball',150)">Add</button>
+</div>
 
-<div class="card" onclick="selectSport('Throwball')">🤾 Throwball</div>
+<div class="card">
+<img src="throwball.png">
+<h3>Throwball</h3>
+<p>Fee: ₹150</p>
+<button onclick="addToCart('Throwball',150)">Add</button>
+</div>
 
-<div class="card" onclick="selectSport('Kho Kho')">🏃 Kho Kho</div>
+<div class="card">
+<img src="khokho.png">
+<h3>Kho Kho</h3>
+<p>Fee: ₹100</p>
+<button onclick="addToCart('Kho Kho',100)">Add</button>
+</div>
 
-<div class="card" onclick="selectSport('Basketball')">🏀 Basketball</div>
+<div class="card">
+<img src="basketball.png">
+<h3>Basketball</h3>
+<p>Fee: ₹200</p>
+<button onclick="addToCart('Basketball',200)">Add</button>
+</div>
 
 </div>
 
-<!-- REGISTRATION FORM -->
+<!-- CART PANEL -->
 
-<section class="registration" id="registrationForm">
+<div class="cart-panel" id="cartPanel">
 
-<h3>Register for Event</h3>
+<span class="close" onclick="toggleCart()">✖</span>
 
-<input type="text" placeholder="Your Name">
+<h3>Registration Cart</h3>
 
-<input type="text" placeholder="Phone Number">
+<div id="cartItems"></div>
 
-<input type="text" placeholder="Year">
+<p><b>Total: ₹<span id="total">0</span></b></p>
 
-<select id="sportSelect">
+<button class="checkout" onclick="checkout()">Proceed to Payment</button>
 
-<option>Select Sport</option>
-
-<option>Football</option>
-<option>Volleyball</option>
-<option>Throwball</option>
-<option>Kho Kho</option>
-<option>Basketball</option>
-
-</select>
-
-<button onclick="submitForm()">Submit Registration</button>
-
-</section>
-
-<!-- EVENT INFO -->
-
-<section class="info">
-
-<h2>Event Information</h2>
-
-<p>
-Venue : Basaveshwara Medical College & Hospital
-</p>
-
-<p>
-Organized by : IMA
-</p>
-
-<p>
-Join us for an exciting sports fest filled with competition,
-team spirit, and celebration.
-</p>
-
-</section>
-
-<!-- FOOTER -->
+</div>
 
 <footer>
 
+<p>IMA Sports Fest</p>
 <p>Designed by Suhas K N</p>
-
-<p>© 2026 All Rights Reserved</p>
+<p>© 2026</p>
 
 </footer>
 
 <script>
 
-function selectSport(sport){
+let cart=[]
+let total=0
 
-document.getElementById("registrationForm").style.display="block";
+function addToCart(sport,price){
 
-document.getElementById("sportSelect").value=sport;
+cart.push({sport,price})
 
-window.scrollTo({
-top:document.getElementById("registrationForm").offsetTop,
-behavior:"smooth"
-});
+total+=price
+
+updateCart()
+
+toggleCart()
 
 }
 
-function submitForm(){
+function updateCart(){
 
-alert("Registration submitted successfully!");
+let html=""
+
+cart.forEach(item=>{
+html+=`<div class="cart-item">
+<span>${item.sport}</span>
+<span>₹${item.price}</span>
+</div>`
+})
+
+document.getElementById("cartItems").innerHTML=html
+document.getElementById("total").innerText=total
+document.getElementById("cartCount").innerText=cart.length
+
+}
+
+function toggleCart(){
+
+let panel=document.getElementById("cartPanel")
+
+panel.classList.toggle("open")
+
+}
+
+function checkout(){
+
+if(cart.length===0){
+alert("Cart is empty")
+return
+}
+
+alert("Proceeding to payment ₹"+total)
 
 }
 

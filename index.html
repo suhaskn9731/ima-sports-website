@@ -8,266 +8,166 @@
 
 <title>IMA Sports Fest</title>
 
-<style>
-
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:white;
-}
-
-/* HEADER */
-
-.hero img{
-width:100%;
-display:block;
-}
-
-/* TITLE */
-
-.section-title{
-text-align:center;
-font-size:30px;
-margin-top:40px;
-}
-
-/* SPORTS GRID */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-padding:40px;
-max-width:1000px;
-margin:auto;
-}
-
-.card{
-background:white;
-color:black;
-padding:25px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 6px 18px rgba(0,0,0,0.3);
-}
-
-.card img{
-width:60px;
-margin-bottom:10px;
-}
-
-.card button{
-background:#ef4444;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:6px;
-cursor:pointer;
-margin-top:10px;
-}
-
-/* CART BUTTON */
-
-.cart-button{
-position:fixed;
-top:20px;
-right:20px;
-background:#ef4444;
-color:white;
-padding:12px 18px;
-border-radius:8px;
-cursor:pointer;
-z-index:1000;
-}
-
-/* CART PANEL */
-
-.cart-panel{
-position:fixed;
-top:0;
-right:-350px;
-width:350px;
-height:100%;
-background:white;
-color:black;
-box-shadow:-4px 0 10px rgba(0,0,0,0.4);
-padding:20px;
-transition:0.3s;
-z-index:999;
-}
-
-.cart-panel.open{
-right:0;
-}
-
-.cart-item{
-display:flex;
-justify-content:space-between;
-margin-bottom:10px;
-}
-
-.checkout{
-background:#22c55e;
-color:white;
-border:none;
-padding:12px;
-width:100%;
-border-radius:6px;
-margin-top:15px;
-cursor:pointer;
-}
-
-/* CLOSE BUTTON */
-
-.close{
-float:right;
-cursor:pointer;
-font-size:20px;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:30px;
-background:#020617;
-margin-top:40px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<header class="hero">
-<img src="header.png">
-</header>
+<!-- NAVBAR -->
 
-<div class="cart-button" onclick="toggleCart()">
-Cart (<span id="cartCount">0</span>)
+<nav class="navbar">
+
+<div class="logo">
+IMA SPORTS FEST
 </div>
 
-<h2 class="section-title">Sports Events</h2>
+<div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
 
-<div class="cards">
+</nav>
+
+
+<!-- MOBILE MENU -->
+
+<div id="menu">
+
+<a href="#">Home</a>
+<a href="#events">Events</a>
+<a href="#">Register</a>
+<a href="#">Policies</a>
+
+</div>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<img src="images/header.png">
+
+<div class="hero-text">
+
+<h1>IMA SPORTS FEST</h1>
+
+<p>Compete • Conquer • Celebrate</p>
+
+<a href="#events" class="btn">Explore Events</a>
+
+</div>
+
+</section>
+
+
+
+<!-- EVENTS SECTION -->
+
+<section class="events" id="events">
+
+<h2>Sports Events</h2>
+
+<div class="event-grid">
+
+<!-- FOOTBALL -->
 
 <div class="card">
-<img src="football.png">
+
+<img src="images/football.jpg">
+
 <h3>Football</h3>
-<p>Fee: ₹200</p>
-<button onclick="addToCart('Football',200)">Add</button>
+
+<p>₹300</p>
+
+<button>Register</button>
+
 </div>
 
+
+<!-- VOLLEYBALL -->
+
 <div class="card">
-<img src="volleyball.png">
+
+<img src="images/volleyball.jpg">
+
 <h3>Volleyball</h3>
-<p>Fee: ₹150</p>
-<button onclick="addToCart('Volleyball',150)">Add</button>
+
+<p>₹300</p>
+
+<button>Register</button>
+
 </div>
 
-<div class="card">
-<img src="throwball.png">
-<h3>Throwball</h3>
-<p>Fee: ₹150</p>
-<button onclick="addToCart('Throwball',150)">Add</button>
-</div>
+
+
+<!-- BASKETBALL -->
 
 <div class="card">
-<img src="khokho.png">
-<h3>Kho Kho</h3>
-<p>Fee: ₹100</p>
-<button onclick="addToCart('Kho Kho',100)">Add</button>
-</div>
 
-<div class="card">
-<img src="basketball.png">
+<img src="images/basketball.jpg">
+
 <h3>Basketball</h3>
-<p>Fee: ₹200</p>
-<button onclick="addToCart('Basketball',200)">Add</button>
+
+<p>₹500</p>
+
+<button>Register</button>
+
+</div>
+
+
+
+<!-- KHO KHO -->
+
+<div class="card">
+
+<img src="images/kho-kho.jpg">
+
+<h3>Kho Kho</h3>
+
+<p>₹200</p>
+
+<button>Register</button>
+
+</div>
+
+
+
+<!-- THROWBALL -->
+
+<div class="card">
+
+<img src="images/throwball.jpg">
+
+<h3>Throwball</h3>
+
+<p>₹200</p>
+
+<button>Register</button>
+
 </div>
 
 </div>
 
-<!-- CART PANEL -->
+</section>
 
-<div class="cart-panel" id="cartPanel">
 
-<span class="close" onclick="toggleCart()">✖</span>
 
-<h3>Registration Cart</h3>
-
-<div id="cartItems"></div>
-
-<p><b>Total: ₹<span id="total">0</span></b></p>
-
-<button class="checkout" onclick="checkout()">Proceed to Payment</button>
-
-</div>
+<!-- FOOTER -->
 
 <footer>
 
-<p>IMA Sports Fest</p>
+<h3>IMA Sports Fest</h3>
+
+<p>Chitradurga</p>
+
 <p>Designed by Suhas K N</p>
-<p>© 2026</p>
+
+<p>© 2026 All Rights Reserved</p>
 
 </footer>
 
-<script>
 
-let cart=[]
-let total=0
-
-function addToCart(sport,price){
-
-cart.push({sport,price})
-
-total+=price
-
-updateCart()
-
-toggleCart()
-
-}
-
-function updateCart(){
-
-let html=""
-
-cart.forEach(item=>{
-html+=`<div class="cart-item">
-<span>${item.sport}</span>
-<span>₹${item.price}</span>
-</div>`
-})
-
-document.getElementById("cartItems").innerHTML=html
-document.getElementById("total").innerText=total
-document.getElementById("cartCount").innerText=cart.length
-
-}
-
-function toggleCart(){
-
-let panel=document.getElementById("cartPanel")
-
-panel.classList.toggle("open")
-
-}
-
-function checkout(){
-
-if(cart.length===0){
-alert("Cart is empty")
-return
-}
-
-alert("Proceeding to payment ₹"+total)
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 

@@ -22,8 +22,14 @@
 IMA SPORTS FEST
 </div>
 
-<div class="menu-btn" onclick="toggleMenu()">
-☰
+<div class="nav-right">
+
+<div class="cart" onclick="toggleCart()">
+🛒 <span id="cart-count">0</span>
+</div>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
 </div>
 
 </nav>
@@ -47,29 +53,26 @@ IMA SPORTS FEST
 
 <img src="images/header.png">
 
-<div class="hero-text">
+<div class="hero-content">
 
 <h1>IMA SPORTS FEST</h1>
 
 <p>Compete • Conquer • Celebrate</p>
 
-<a href="#events" class="btn">Explore Events</a>
+<a href="#events" class="hero-btn">Explore Events</a>
 
 </div>
 
 </section>
 
 
-
-<!-- EVENTS SECTION -->
+<!-- EVENTS SHOP -->
 
 <section class="events" id="events">
 
 <h2>Sports Events</h2>
 
 <div class="event-grid">
-
-<!-- FOOTBALL -->
 
 <div class="card">
 
@@ -79,12 +82,10 @@ IMA SPORTS FEST
 
 <p>₹300</p>
 
-<button>Register</button>
+<button onclick="addToCart('Football',300)">Register</button>
 
 </div>
 
-
-<!-- VOLLEYBALL -->
 
 <div class="card">
 
@@ -94,13 +95,10 @@ IMA SPORTS FEST
 
 <p>₹300</p>
 
-<button>Register</button>
+<button onclick="addToCart('Volleyball',300)">Register</button>
 
 </div>
 
-
-
-<!-- BASKETBALL -->
 
 <div class="card">
 
@@ -110,29 +108,23 @@ IMA SPORTS FEST
 
 <p>₹500</p>
 
-<button>Register</button>
+<button onclick="addToCart('Basketball',500)">Register</button>
 
 </div>
 
 
-
-<!-- KHO KHO -->
-
 <div class="card">
 
-<img src="images/kho-kho.jpg">
+<img src="images/khokho.jpg">
 
 <h3>Kho Kho</h3>
 
 <p>₹200</p>
 
-<button>Register</button>
+<button onclick="addToCart('Kho Kho',200)">Register</button>
 
 </div>
 
-
-
-<!-- THROWBALL -->
 
 <div class="card">
 
@@ -142,13 +134,29 @@ IMA SPORTS FEST
 
 <p>₹200</p>
 
-<button>Register</button>
+<button onclick="addToCart('Throwball',200)">Register</button>
 
 </div>
 
 </div>
 
 </section>
+
+
+
+<!-- CART PANEL -->
+
+<div id="cart-panel">
+
+<h3>Your Registrations</h3>
+
+<ul id="cart-items"></ul>
+
+<p>Total: ₹<span id="total">0</span></p>
+
+<button class="checkout">Proceed to Checkout</button>
+
+</div>
 
 
 

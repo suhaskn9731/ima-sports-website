@@ -1,65 +1,83 @@
 
-let cart = [];
-let total = 0;
+/* SMOOTH SCROLL */
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener('click',function(e){
 
-function toggleMenu(){
+e.preventDefault();
 
-let menu = document.getElementById("menu");
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior:'smooth'
+});
 
-if(menu.style.display === "flex"){
-menu.style.display = "none";
-}else{
-menu.style.display = "flex";
-}
-
-}
-
-
-function toggleCart(){
-
-let panel = document.getElementById("cart-panel");
-
-if(panel.style.right === "0px"){
-panel.style.right = "-300px";
-}else{
-panel.style.right = "0px";
-}
-
-}
+});
+});
 
 
 
-function addToCart(name,price){
+/* PARTICLES */
 
-cart.push({name,price})
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
 
-total += price
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 
-document.getElementById("cart-count").innerText = cart.length
+let particles=[];
 
-updateCart()
+for(let i=0;i<80;i++){
+
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
 
 }
 
+function draw(){
 
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-function updateCart(){
+ctx.fillStyle="white";
 
-let list = document.getElementById("cart-items")
+particles.forEach(p=>{
 
-list.innerHTML = ""
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
 
-cart.forEach(item =>{
+p.y+=p.d;
 
-let li = document.createElement("li")
+if(p.y>canvas.height){
+p.y=0;
+}
 
-li.innerText = item.name + " - ₹" + item.price
+});
 
-list.appendChild(li)
-
-})
-
-document.getElementById("total").innerText = total
+requestAnimationFrame(draw);
 
 }
+
+draw();
+
+
+
+/* CARD ANIMATION */
+
+const cards=document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+
+cards.forEach(card=>{
+
+const top=card.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+card.classList.add("show");
+}
+
+});
+
+});

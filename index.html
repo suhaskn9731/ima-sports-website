@@ -10,170 +10,96 @@
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- INTRO SCREEN -->
 
-<nav class="navbar">
-
-<div class="logo">
-IMA SPORTS FEST
+<div id="intro">
+<h1 class="intro-title">IMA SPORTS FEST</h1>
 </div>
 
-<div class="nav-right">
-
-<div class="cart" onclick="toggleCart()">
-🛒 <span id="cart-count">0</span>
-</div>
-
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-</div>
-
-</nav>
-
-
-<!-- MOBILE MENU -->
-
-<div id="menu">
-
-<a href="#">Home</a>
-<a href="#events">Events</a>
-<a href="#">Register</a>
-<a href="#">Policies</a>
-
-</div>
 
 
 <!-- HERO SECTION -->
 
 <section class="hero">
 
-<img src="images/header.png">
+<video autoplay muted loop class="video-bg">
+<source src="hero.MP4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<canvas id="particles"></canvas>
+
+
+
+<!-- HERO CONTENT -->
 
 <div class="hero-content">
 
-<h1>IMA SPORTS FEST</h1>
+<div class="glass">
 
-<p>Compete • Conquer • Celebrate</p>
+<h1 class="title spotlight-text">IMA SPORTS FEST</h1>
 
-<a href="#events" class="hero-btn">Explore Events</a>
+<p class="tagline">
+Compete • Conquer • Celebrate
+</p>
+
+<a href="#events" class="btn">
+Explore Events
+</a>
 
 </div>
+
+</div>
+
+<div class="scroll">↓</div>
 
 </section>
 
 
-<!-- EVENTS SHOP -->
 
-<section class="events" id="events">
+<!-- EVENTS -->
+
+<section id="events" class="events">
 
 <h2>Sports Events</h2>
 
-<div class="event-grid">
+<div class="cards">
 
 <div class="card">
-
-<img src="images/football.jpg">
-
+<img src="football.jpg">
 <h3>Football</h3>
-
-<p>₹300</p>
-
-<button onclick="addToCart('Football',300)">Register</button>
-
 </div>
 
-
 <div class="card">
-
-<img src="images/volleyball.jpg">
-
+<img src="volleyball.jpg">
 <h3>Volleyball</h3>
-
-<p>₹300</p>
-
-<button onclick="addToCart('Volleyball',300)">Register</button>
-
 </div>
 
-
 <div class="card">
-
-<img src="images/basketball.jpg">
-
+<img src="basketball.jpg">
 <h3>Basketball</h3>
-
-<p>₹500</p>
-
-<button onclick="addToCart('Basketball',500)">Register</button>
-
 </div>
 
-
 <div class="card">
-
-<img src="images/khokho.jpg">
-
+<img src="kho-kho.jpg">
 <h3>Kho Kho</h3>
-
-<p>₹200</p>
-
-<button onclick="addToCart('Kho Kho',200)">Register</button>
-
 </div>
 
-
 <div class="card">
-
-<img src="images/throwball.jpg">
-
+<img src="throwball.jpg">
 <h3>Throwball</h3>
-
-<p>₹200</p>
-
-<button onclick="addToCart('Throwball',200)">Register</button>
-
 </div>
 
 </div>
 
 </section>
-
-
-
-<!-- CART PANEL -->
-
-<div id="cart-panel">
-
-<h3>Your Registrations</h3>
-
-<ul id="cart-items"></ul>
-
-<p>Total: ₹<span id="total">0</span></p>
-
-<button class="checkout">Proceed to Checkout</button>
-
-</div>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<h3>IMA Sports Fest</h3>
-
-<p>Chitradurga</p>
-
-<p>Designed by Suhas K N</p>
-
-<p>© 2026 All Rights Reserved</p>
-
-</footer>
-
 
 <script src="script.js"></script>
 

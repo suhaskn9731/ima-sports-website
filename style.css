@@ -7,6 +7,7 @@ overflow-x:hidden;
 }
 
 
+
 /* INTRO SCREEN */
 
 #intro{
@@ -52,6 +53,8 @@ overflow:hidden;
 
 .video-bg{
 position:absolute;
+top:0;
+left:0;
 width:100%;
 height:100%;
 object-fit:cover;
@@ -62,11 +65,7 @@ z-index:-3;
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(
-to bottom,
-rgba(0,0,0,0.5),
-rgba(0,0,0,0.9)
-);
+background:rgba(0,0,0,0.6);
 z-index:-2;
 }
 
@@ -98,7 +97,7 @@ border:1px solid rgba(255,255,255,0.2);
 /* TITLE */
 
 .title{
-font-size:80px;
+font-size:70px;
 letter-spacing:6px;
 }
 
@@ -117,6 +116,7 @@ overflow:hidden;
 }
 
 .spotlight-text::after{
+
 content:"";
 position:absolute;
 top:0;
@@ -132,6 +132,7 @@ transparent
 );
 
 animation:spotlightMove 4s infinite;
+
 }
 
 @keyframes spotlightMove{

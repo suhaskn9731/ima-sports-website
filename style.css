@@ -1,109 +1,321 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>IMA Sports Fest</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-</head>
-
-<body>
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+overflow-x:hidden;
+background:#0f172a;
+color:white;
+}
 
 
 
-<!-- INTRO SCREEN -->
+/* INTRO SCREEN */
 
-<div id="intro">
-<h1 class="intro-title">IMA SPORTS FEST</h1>
-</div>
+#intro{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 1s ease 3s forwards;
+}
 
+.intro-title{
+font-family:'Bebas Neue';
+font-size:70px;
+letter-spacing:6px;
+animation:zoom 2s ease;
+}
 
+@keyframes zoom{
+0%{opacity:0;transform:scale(0.5);}
+100%{opacity:1;transform:scale(1);}
+}
 
-<!-- HERO SECTION -->
-
-<section class="hero">
-
-<video autoplay muted loop playsinline class="video-bg">
-<source src="hero.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<canvas id="particles"></canvas>
-
-
-<div class="hero-content">
-
-<div class="glass">
-
-<h1 class="title spotlight-text">
-IMA SPORTS FEST
-</h1>
-
-<p class="tagline">
-Compete • Conquer • Celebrate
-</p>
-
-<a href="#events" class="btn">
-Explore Events
-</a>
-
-</div>
-
-</div>
-
-<div class="scroll">↓</div>
-
-</section>
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
 
 
 
-<!-- EVENTS SECTION -->
+/* HERO */
 
-<section id="events" class="events">
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
 
-<h2>Sports Events</h2>
+.video-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-3;
+}
 
-<div class="cards">
-
-<div class="card">
-<img src="football.jpg">
-<h3>Football</h3>
-</div>
-
-<div class="card">
-<img src="volleyball.jpg">
-<h3>Volleyball</h3>
-</div>
-
-<div class="card">
-<img src="basketball.jpg">
-<h3>Basketball</h3>
-</div>
-
-<div class="card">
-<img src="kho-kho.jpg">
-<h3>Kho Kho</h3>
-</div>
-
-<div class="card">
-<img src="throwball.jpg">
-<h3>Throwball</h3>
-</div>
-
-</div>
-
-</section>
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:-2;
+}
 
 
-<script src="script.js"></script>
 
-</body>
-</html>
+/* PARTICLES */
+
+#particles{
+position:absolute;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+
+
+/* GLASS PANEL */
+
+.glass{
+background:rgba(20,20,30,0.65);
+backdrop-filter:blur(14px);
+border-radius:20px;
+padding:60px;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+
+
+/* TITLE */
+
+.title{
+font-family:'Bebas Neue';
+font-size:70px;
+letter-spacing:6px;
+}
+
+
+
+/* GLOW EFFECT */
+
+.spotlight-text{
+text-shadow:
+0 0 10px #fff,
+0 0 20px #ef4444,
+0 0 40px #ef4444;
+}
+
+
+
+/* TAGLINE */
+
+.tagline{
+font-size:22px;
+margin:20px 0;
+opacity:0.9;
+}
+
+
+
+/* BUTTON */
+
+.btn{
+background:#ef4444;
+padding:16px 36px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#dc2626;
+transform:scale(1.05);
+}
+
+
+
+/* SCROLL ICON */
+
+.scroll{
+position:absolute;
+bottom:25px;
+font-size:32px;
+animation:float 2s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(10px)}
+100%{transform:translateY(0)}
+}
+
+
+
+/* EVENTS SECTION */
+
+.events{
+
+padding:120px 20px;
+
+text-align:center;
+
+background:linear-gradient(
+180deg,
+#ffffff 0%,
+#f3f4f6 100%
+);
+
+color:#111827;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+/* PAINT SPLASH BACKGROUND */
+
+.events::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:url("https://images.unsplash.com/photo-1607082350899-7e105aa886ae");
+
+background-size:cover;
+
+background-position:center;
+
+opacity:0.25;
+
+z-index:0;
+
+}
+
+
+
+/* TITLE */
+
+.events h2{
+
+font-family:'Bebas Neue';
+
+font-size:64px;
+
+letter-spacing:6px;
+
+margin-bottom:60px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+
+/* CARDS GRID */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:30px;
+
+max-width:1000px;
+
+margin:auto;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+
+/* CARD */
+
+.card{
+
+background:white;
+
+border-radius:20px;
+
+padding:18px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+
+transition:0.4s;
+
+}
+
+.card img{
+
+width:100%;
+
+border-radius:14px;
+
+margin-bottom:10px;
+
+}
+
+.card h3{
+
+font-size:22px;
+
+color:#111827;
+
+font-weight:600;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px) scale(1.04);
+
+box-shadow:0 25px 50px rgba(0,0,0,0.25);
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.title{
+font-size:42px;
+}
+
+.glass{
+padding:30px;
+}
+
+.events h2{
+font-size:42px;
+}
+
+}

@@ -1,63 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
 
-/* SMOOTH SCROLL */
+<head>
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-anchor.addEventListener('click',function(e){
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-e.preventDefault();
+<title>IMA Sports Fest</title>
 
-document.querySelector(this.getAttribute('href')).scrollIntoView({
-behavior:'smooth'
-});
+<link rel="stylesheet" href="style.css">
 
-});
-});
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
 
 
 
-/* PARTICLES */
+<!-- INTRO SCREEN -->
 
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
+<div id="intro">
+<h1 class="intro-title">IMA SPORTS FEST</h1>
+</div>
 
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
 
-let particles=[];
 
-for(let i=0;i<80;i++){
+<!-- HERO SECTION -->
 
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-d:Math.random()*1
-});
+<section class="hero">
 
-}
+<video autoplay muted loop playsinline class="video-bg">
+<source src="hero.mp4" type="video/mp4">
+</video>
 
-function draw(){
+<div class="overlay"></div>
 
-ctx.clearRect(0,0,canvas.width,canvas.height);
+<canvas id="particles"></canvas>
 
-ctx.fillStyle="white";
 
-particles.forEach(p=>{
+<div class="hero-content">
 
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fill();
+<div class="glass">
 
-p.y+=p.d;
+<h1 class="title spotlight-text">
+IMA SPORTS FEST
+</h1>
 
-if(p.y>canvas.height){
-p.y=0;
-}
+<p class="tagline">
+Compete • Conquer • Celebrate
+</p>
 
-});
+<a href="#events" class="btn">
+Explore Events
+</a>
 
-requestAnimationFrame(draw);
+</div>
 
-}
+</div>
 
-draw();
+<div class="scroll">↓</div>
+
+</section>
+
+
+
+<!-- EVENTS SECTION -->
+
+<section id="events" class="events">
+
+<h2>Sports Events</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="football.jpg">
+<h3>Football</h3>
+</div>
+
+<div class="card">
+<img src="volleyball.jpg">
+<h3>Volleyball</h3>
+</div>
+
+<div class="card">
+<img src="basketball.jpg">
+<h3>Basketball</h3>
+</div>
+
+<div class="card">
+<img src="kho-kho.jpg">
+<h3>Kho Kho</h3>
+</div>
+
+<div class="card">
+<img src="throwball.jpg">
+<h3>Throwball</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

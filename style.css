@@ -1,291 +1,109 @@
-body{
-margin:0;
-font-family:'Poppins',sans-serif;
-color:white;
-overflow-x:hidden;
-background:#020617;
-}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* INTRO */
+<title>IMA Sports Fest</title>
 
-#intro{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-animation:fadeOut 1s ease 3s forwards;
-}
+<link rel="stylesheet" href="style.css">
 
-.intro-title{
-font-family:'Bebas Neue',sans-serif;
-font-size:60px;
-letter-spacing:6px;
-}
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
-}
+</head>
 
+<body>
 
 
-/* HERO */
 
-.hero{
-position:relative;
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
-}
+<!-- INTRO SCREEN -->
 
-.video-bg{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-3;
-}
+<div id="intro">
+<h1 class="intro-title">IMA SPORTS FEST</h1>
+</div>
 
-.overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-z-index:-2;
-}
 
 
+<!-- HERO SECTION -->
 
-/* PARTICLES */
+<section class="hero">
 
-#particles{
-position:absolute;
-width:100%;
-height:100%;
-z-index:-1;
-}
+<video autoplay muted loop playsinline class="video-bg">
+<source src="hero.mp4" type="video/mp4">
+</video>
 
+<div class="overlay"></div>
 
+<canvas id="particles"></canvas>
 
-/* GLASS PANEL */
 
-.glass{
-backdrop-filter:blur(14px);
-background:rgba(20,20,30,0.65);
-border-radius:20px;
-padding:60px;
-box-shadow:0 20px 60px rgba(0,0,0,0.6);
-}
+<div class="hero-content">
 
+<div class="glass">
 
+<h1 class="title spotlight-text">
+IMA SPORTS FEST
+</h1>
 
-/* TITLE */
+<p class="tagline">
+Compete • Conquer • Celebrate
+</p>
 
-.title{
-font-family:'Bebas Neue',sans-serif;
-font-size:70px;
-letter-spacing:6px;
-}
+<a href="#events" class="btn">
+Explore Events
+</a>
 
+</div>
 
+</div>
 
-/* GLOW EFFECT */
+<div class="scroll">↓</div>
 
-.spotlight-text{
-text-shadow:
-0 0 10px #fff,
-0 0 20px #ef4444,
-0 0 40px #ef4444;
-}
+</section>
 
 
 
-/* TAGLINE */
+<!-- EVENTS SECTION -->
 
-.tagline{
-font-size:22px;
-margin:20px 0;
-opacity:0.85;
-}
+<section id="events" class="events">
 
+<h2>Sports Events</h2>
 
+<div class="cards">
 
-/* BUTTON */
+<div class="card">
+<img src="football.jpg">
+<h3>Football</h3>
+</div>
 
-.btn{
-background:#ef4444;
-padding:16px 36px;
-border-radius:8px;
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
+<div class="card">
+<img src="volleyball.jpg">
+<h3>Volleyball</h3>
+</div>
 
-.btn:hover{
-background:#dc2626;
-transform:scale(1.05);
-}
+<div class="card">
+<img src="basketball.jpg">
+<h3>Basketball</h3>
+</div>
 
+<div class="card">
+<img src="kho-kho.jpg">
+<h3>Kho Kho</h3>
+</div>
 
+<div class="card">
+<img src="throwball.jpg">
+<h3>Throwball</h3>
+</div>
 
-/* SCROLL ARROW */
+</div>
 
-.scroll{
-position:absolute;
-bottom:25px;
-font-size:32px;
-animation:float 2s infinite;
-}
+</section>
 
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(10px)}
-100%{transform:translateY(0)}
-}
 
+<script src="script.js"></script>
 
-
-/* EVENTS SECTION */
-
-.events{
-
-padding:120px 20px;
-
-background-image:url("https://images.unsplash.com/photo-1617957743098-c9d2e0c9a6e0");
-
-background-size:cover;
-background-position:center;
-
-color:#111827;
-position:relative;
-
-}
-
-.events::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(255,255,255,0.9);
-
-z-index:0;
-
-}
-
-.events h2{
-
-position:relative;
-
-font-family:'Bebas Neue',sans-serif;
-
-font-size:60px;
-
-letter-spacing:4px;
-
-margin-bottom:60px;
-
-z-index:1;
-
-}
-
-
-
-/* CARDS */
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
-max-width:1000px;
-
-margin:auto;
-
-position:relative;
-
-z-index:1;
-
-}
-
-.card{
-
-background:white;
-
-border-radius:16px;
-
-padding:18px;
-
-box-shadow:0 12px 30px rgba(0,0,0,0.2);
-
-transition:0.4s;
-
-text-align:center;
-
-}
-
-.card img{
-
-width:100%;
-
-border-radius:12px;
-
-margin-bottom:12px;
-
-}
-
-.card h3{
-
-font-weight:600;
-
-color:#111827;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px) scale(1.05);
-
-box-shadow:0 20px 40px rgba(0,0,0,0.25);
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.title{
-font-size:40px;
-}
-
-.glass{
-padding:30px;
-}
-
-.events h2{
-font-size:42px;
-}
-
-}
+</body>
+</html>

@@ -1,321 +1,125 @@
 body{
 margin:0;
-font-family:'Poppins', sans-serif;
-overflow-x:hidden;
-background:#0f172a;
+font-family:Poppins;
+background:black;
 color:white;
 }
 
-
-
-/* INTRO SCREEN */
-
-#intro{
-position:fixed;
-width:100%;
-height:100%;
-background:black;
+/* NAVBAR */
+.navbar{
 display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-animation:fadeOut 1s ease 3s forwards;
+justify-content:space-between;
+padding:15px 20px;
+background:#7a0000;
+color:gold;
+font-family:Cinzel;
 }
 
-.intro-title{
-font-family:'Bebas Neue';
-font-size:70px;
-letter-spacing:6px;
-animation:zoom 2s ease;
+/* MENU */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:70%;
+height:100%;
+background:white;
+color:black;
+padding:20px;
+transition:0.4s;
 }
 
-@keyframes zoom{
-0%{opacity:0;transform:scale(0.5);}
-100%{opacity:1;transform:scale(1);}
+.menu a{
+display:block;
+margin:20px 0;
+text-decoration:none;
+font-size:18px;
 }
 
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
+.menu.show{
+right:0;
 }
-
-
 
 /* HERO */
-
 .hero{
-position:relative;
 height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-align:center;
-overflow:hidden;
 }
-
-.video-bg{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-3;
-}
-
-.overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-z-index:-2;
-}
-
-
-
-/* PARTICLES */
-
-#particles{
-position:absolute;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-
-
-/* GLASS PANEL */
-
-.glass{
-background:rgba(20,20,30,0.65);
-backdrop-filter:blur(14px);
-border-radius:20px;
-padding:60px;
-box-shadow:0 20px 60px rgba(0,0,0,0.6);
-}
-
-
-
-/* TITLE */
 
 .title{
-font-family:'Bebas Neue';
-font-size:70px;
-letter-spacing:6px;
+font-size:40px;
+font-family:Cinzel;
+color:gold;
 }
-
-
-
-/* GLOW EFFECT */
-
-.spotlight-text{
-text-shadow:
-0 0 10px #fff,
-0 0 20px #ef4444,
-0 0 40px #ef4444;
-}
-
-
-
-/* TAGLINE */
 
 .tagline{
-font-size:22px;
 margin:20px 0;
-opacity:0.9;
 }
-
-
 
 /* BUTTON */
-
 .btn{
-background:#ef4444;
-padding:16px 36px;
-border-radius:8px;
-color:white;
+background:#ff3c3c;
+padding:12px 25px;
+border-radius:10px;
 text-decoration:none;
-font-weight:600;
-transition:0.3s;
+color:white;
+display:inline-block;
 }
 
-.btn:hover{
-background:#dc2626;
-transform:scale(1.05);
-}
-
-
-
-/* SCROLL ICON */
-
-.scroll{
-position:absolute;
-bottom:25px;
-font-size:32px;
-animation:float 2s infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(10px)}
-100%{transform:translateY(0)}
-}
-
-
-
-/* EVENTS SECTION */
-
+/* EVENTS */
 .events{
-
-padding:120px 20px;
-
+padding:20px;
 text-align:center;
-
-background:linear-gradient(
-180deg,
-#ffffff 0%,
-#f3f4f6 100%
-);
-
-color:#111827;
-
-position:relative;
-
-overflow:hidden;
-
 }
 
+.event-card{
+background:white;
+color:black;
+margin:15px;
+padding:10px;
+border-radius:15px;
+}
 
-
-/* PAINT SPLASH BACKGROUND */
-
-.events::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:0;
-
+.event-card img{
 width:100%;
-height:100%;
-
-background-image:url("https://images.unsplash.com/photo-1607082350899-7e105aa886ae");
-
-background-size:cover;
-
-background-position:center;
-
-opacity:0.25;
-
-z-index:0;
-
+border-radius:10px;
 }
 
-
-
-/* TITLE */
-
-.events h2{
-
-font-family:'Bebas Neue';
-
-font-size:64px;
-
-letter-spacing:6px;
-
-margin-bottom:60px;
-
-position:relative;
-
-z-index:2;
-
+/* DETAILS */
+.details{
+padding:20px;
 }
 
-
-
-/* CARDS GRID */
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:30px;
-
-max-width:1000px;
-
-margin:auto;
-
-position:relative;
-
-z-index:2;
-
+.details img{
+width:100%;
+border-radius:15px;
 }
 
-
-
-/* CARD */
+/* INFO */
+.info{
+padding:20px;
+}
 
 .card{
-
 background:white;
-
-border-radius:20px;
-
-padding:18px;
-
-box-shadow:0 15px 40px rgba(0,0,0,0.15);
-
-transition:0.4s;
-
+color:black;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
 }
 
-.card img{
-
-width:100%;
-
-border-radius:14px;
-
-margin-bottom:10px;
-
+/* ANIMATION */
+.reveal{
+opacity:0;
+transform:translateY(20px);
+animation:fade 1s forwards;
 }
 
-.card h3{
-
-font-size:22px;
-
-color:#111827;
-
-font-weight:600;
-
+@keyframes fade{
+to{
+opacity:1;
+transform:translateY(0);
 }
-
-.card:hover{
-
-transform:translateY(-12px) scale(1.04);
-
-box-shadow:0 25px 50px rgba(0,0,0,0.25);
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.title{
-font-size:42px;
-}
-
-.glass{
-padding:30px;
-}
-
-.events h2{
-font-size:42px;
-}
-
 }

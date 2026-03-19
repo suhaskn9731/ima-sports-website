@@ -28,14 +28,15 @@ padding:20px;
 transition:0.4s;
 }
 
-.menu.show{
-right:0;
-}
-
 .menu a{
 display:block;
 margin:20px 0;
 text-decoration:none;
+font-size:18px;
+}
+
+.menu.show{
+right:0;
 }
 
 /* HERO */
@@ -48,13 +49,13 @@ text-align:center;
 }
 
 .title{
-font-size:42px;
-color:gold;
+font-size:40px;
 font-family:Cinzel;
+color:gold;
 }
 
 .tagline{
-margin:15px 0;
+margin:20px 0;
 }
 
 /* BUTTON */
@@ -62,8 +63,8 @@ margin:15px 0;
 background:#ff3c3c;
 padding:12px 25px;
 border-radius:10px;
-color:white;
 text-decoration:none;
+color:white;
 display:inline-block;
 }
 
@@ -110,13 +111,13 @@ border-radius:10px;
 }
 
 /* ANIMATION */
-.fade{
+.reveal{
 opacity:0;
 transform:translateY(20px);
-animation:fadeIn 1s forwards;
+animation:fade 1s forwards;
 }
 
-@keyframes fadeIn{
+@keyframes fade{
 to{
 opacity:1;
 transform:translateY(0);
